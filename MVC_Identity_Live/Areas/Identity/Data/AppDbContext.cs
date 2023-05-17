@@ -25,15 +25,14 @@ public class AppDbContext : IdentityDbContext<AppUser>
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
     }
 }
-
-public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<AppUser>
-{
-    public void Configure(EntityTypeBuilder<AppUser> builder)
+    public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<AppUser>
     {
-        // burada yeni eklemelerimi belirtiyorum.
+        public void Configure(EntityTypeBuilder<AppUser> builder)
+        {
+            // burada User tablosundaki yeni eklemelerimi belirtiyorum.
 
-        builder.Property(u => u.FirstName).HasMaxLength(20);
-        builder.Property(u => u.LastName).HasMaxLength(20); 
-        
+            builder.Property(u => u.FirstName).HasMaxLength(20);
+            builder.Property(u => u.LastName).HasMaxLength(20);
+
+        }
     }
-}
