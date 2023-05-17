@@ -25,3 +25,6 @@
 
 10. İşlemler öncesi Register.cshtml.cs dosyasındaki OnPostAsync metoduna tanımlamaların yapılması(modele ekrandan alınan bilgilerin aktarılması)
 
+_________________
+
+Sizlerde db de AspNetUser tablosunda olacak sekilde Sehir gibi bir bilgiyi register ekranına ekleyiniz. AppUser sınıfından yararlanarak.
