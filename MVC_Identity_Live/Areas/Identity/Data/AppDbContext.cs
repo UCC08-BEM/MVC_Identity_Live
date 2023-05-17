@@ -33,5 +33,6 @@ public class AppDbContext : IdentityDbContext<AppUser>
 
             builder.Property(u => u.FirstName).HasMaxLength(20);
             builder.Property(u => u.LastName).HasMaxLength(20);
-        }
+            builder.Property(u => u.City).HasMaxLength(50);
     }
+}

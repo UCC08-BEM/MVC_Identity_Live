@@ -15,5 +15,7 @@ public class AppUser : IdentityUser
 
     public string LastName { get; set; }
 
+    public string City { get; set; } // Yeni alan
+
 }
 

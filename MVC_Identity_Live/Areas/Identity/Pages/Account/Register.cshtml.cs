@@ -83,7 +83,15 @@ namespace MVC_Identity_Live.Areas.Identity.Pages.Account
             [StringLength(255, ErrorMessage = "Last Name must be 20 chars. Please control..")]
             public string LastName { get; set; }
 
+            [Required]
+            [Display(Name = "City")]
+            [StringLength(255, ErrorMessage = "Last Name must be 20 chars. Please control..")]
+            public string City { get; set; }
 
+            [Required]
+            [Display(Name = "Phone Number")]
+            [StringLength(255, ErrorMessage = "Last Name must be 20 chars. Please control..")]
+            public string PhoneNumber { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -121,10 +129,12 @@ namespace MVC_Identity_Live.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+        // Viewdan geri dönüş(post) durumu
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
             if (ModelState.IsValid)
             {
                 // Eğer modelim geçerliyse Kullanıcıyı yaratma bölümü
@@ -134,9 +144,13 @@ namespace MVC_Identity_Live.Areas.Identity.Pages.Account
                 user.FirstName = Input.FirstName; // Modelimden gelen bilginin propertye aktarımı
                 user.LastName=Input.LastName; 
 
+                user.City = Input.City;
+
+                user.PhoneNumber= Input.PhoneNumber;
+
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                var result = await _userManager.CreateAsync(user, Input.Password); // Kullanıcı yaratılma işlemi yapılıyor.
 
                 if (result.Succeeded)
                 {
