@@ -71,6 +71,20 @@ namespace MVC_Identity_Live.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+            // Burası benim ekrandan giriş yapıldığında kullanılacak propertylerimin tanımlandığı yer.
+
+            [Required]
+            [Display(Name ="First Name")]
+            [StringLength(255,ErrorMessage ="First Name must be 20 chars. Please control..")]
+            public string FirstName { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            [StringLength(255, ErrorMessage = "Last Name must be 20 chars. Please control..")]
+            public string LastName { get; set; }
+
+
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -113,7 +127,12 @@ namespace MVC_Identity_Live.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                // Eğer modelim geçerliyse Kullanıcıyı yaratma bölümü
+
                 var user = CreateUser();
+
+                user.FirstName = Input.FirstName; // Modelimden gelen bilginin propertye aktarımı
+                user.LastName=Input.LastName; 
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

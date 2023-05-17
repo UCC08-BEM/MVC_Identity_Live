@@ -20,3 +20,8 @@
 7. VT yi oluşturmadan Önce gerekli bağlantı cümleciğini oluşturuyorum. (appsettings.json)
 
 8. Migration işlemleri (add-migration,update-database)
+
+9. VT ye eklediğimiz bu alanları(FirstName,LastName) Register.cshtml.cs dosyasına tanımlayalım.
+
+10. İşlemler öncesi Register.cshtml.cs dosyasındaki OnPostAsync metoduna tanımlamaların yapılması(modele ekrandan alınan bilgilerin aktarılması)
+
