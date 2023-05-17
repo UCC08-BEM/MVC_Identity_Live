@@ -14,3 +14,9 @@
 4. _LoginPartial olarak yerleşen Login/Register işlemini yapacak olan partial view ı normal _Layout sayfasında görülecek şekilde ekliyoruz. 
 
 5. Login/Register seçeneklerini çalışır hale getirmek için Identity FW razor pages mantığında olduğundan dolayı ana Program.cs kısmına bunu tanımlamam gerekiyor.
+
+6. Hazır olan VT deki ASPNetUsers tablosuna 2 adet alan (FirstName, LastName) eklemek için AppUser classına bu eklemeleri yapıyoruz. ve bunları AppDbContext sınıfı içine de tanımlıyoruz.
+
+7. VT yi oluşturmadan Önce gerekli bağlantı cümleciğini oluşturuyorum. (appsettings.json)
+
+8. Migration işlemleri (add-migration,update-database)

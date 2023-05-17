@@ -4,6 +4,7 @@ using MVC_Identity_Live.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Appsettings.json dosyasýndan conn stringi okuyor.
 var connectionString = builder.Configuration.GetConnectionString("AppDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
