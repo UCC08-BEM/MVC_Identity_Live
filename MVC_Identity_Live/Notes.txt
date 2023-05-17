@@ -1,0 +1,16 @@
+﻿ASP.Net Core Identity
+
+1. Gerekli veritabanı frameworkleri yüklenir
+- EFCore
+- EFCore.Tools
+- EFCore.SqlServer
+
+2. Scaffolding : Uygulamanıza hazır yapıları yerleştiren bir mekanizma. Bunu sisteme yansıtabilmek için ayrıca şu paketinde yüklenmesi gerekir.
+- Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+3. Projemize Identity özelliğini kazandırmak için Scaffolding işlemini uyguluyoruz.
+(Login,Logout,Register sayfaları, DBContext, User sınıfını belirterek)
+
+4. _LoginPartial olarak yerleşen Login/Register işlemini yapacak olan partial view ı normal _Layout sayfasında görülecek şekilde ekliyoruz. 
+
+5. Login/Register seçeneklerini çalışır hale getirmek için Identity FW razor pages mantığında olduğundan dolayı ana Program.cs kısmına bunu tanımlamam gerekiyor.
